@@ -1,0 +1,106 @@
+# -- Movement ------------------------------------------------------------------
+
+# swap managed window
+shift + alt + ctrl - h : yabai -m window --swap west
+shift + alt + ctrl - j : yabai -m window --swap south
+shift + alt + ctrl - k : yabai -m window --swap north
+shift + alt + ctrl - l : yabai -m window --swap east
+
+# re-insert managed window
+ctrl + cmd - h : yabai -m window --warp west
+ctrl + cmd - j : yabai -m window --warp south
+ctrl + cmd - k : yabai -m window --warp north
+ctrl + cmd - l : yabai -m window --warp east
+
+# insert managed window into stack
+ctrl + shift + cmd - h : yabai -m window --stack west
+ctrl + shift + cmd - j : yabai -m window --stack south
+ctrl + shift + cmd - k : yabai -m window --stack north
+ctrl + shift + cmd - l : yabai -m window --stack east
+
+# move floating window
+shift + alt + ctrl - left : yabai -m window --move rel:-20:0
+shift + alt + ctrl - right : yabai -m window --move rel:20:0
+shift + alt + ctrl - down : yabai -m window --move rel:0:20
+shift + alt + ctrl - up : yabai -m window --move rel:0:-20
+
+# -- Focus ---------------------------------------------------------------------
+
+# focus window
+shift + alt - h : yabai -m window --focus west
+shift + alt - j : yabai -m window --focus south
+shift + alt - k : yabai -m window --focus north
+shift + alt - l : yabai -m window --focus east
+shift + alt - g : yabai -m window --focus first
+shift + alt - a : yabai -m window --focus recent
+shift + alt - p : yabai -m window --focus stack.prev || yabai -m window --focus prev || yabai -m window --focus last
+shift + alt - n : yabai -m window --focus stack.next || yabai -m window --focus next || yabai -m window --focus first
+
+# focus display
+cmd + ctrl - 1 : yabai -m display --focus 1
+# cmd - 2 : yabai -m display --focus 2
+# cmd - 3 : yabai -m display --focus 3
+
+# focus space
+alt - 1 : yabai -m space --focus 1
+
+# send window to display
+shift + cmd  - 1 : yabai -m window --display 1; yabai -m display --focus 1
+shift + cmd  - 2 : yabai -m window --display 2; yabai -m display --focus 2
+shift + cmd  - 3 : yabai -m window --display 3; yabai -m display --focus 3
+
+# -- Size ----------------------------------------------------------------------
+
+# make floating window fill screen or center
+shift + alt + ctrl - f : yabai -m window --grid 1:1:0:0:1:1
+shift + alt + ctrl - a : yabai -m window --grid 9:9:2:1:5:7
+
+# resize floating window
+shift + alt + ctrl - d : yabai -m window --resize bottom_right:100:100
+shift + alt + ctrl - e : yabai -m window --resize bottom_right:-100:-100
+shift + alt + ctrl - s : yabai -m window --resize bottom_left:-100:100
+shift + alt + ctrl - w : yabai -m window --resize bottom_left:100:-100
+
+# resize window
+# shift + alt - left : yabai -m window west --resize right:-20:0 2> /dev/null || yabai -m window --resize right:-20:0
+# shift + alt - down : yabai -m window north --resize bottom:0:20 2> /dev/null || yabai -m window --resize bottom:0:20
+# shift + alt - up : yabai -m window south --resize top:0:-20 2> /dev/null || yabai -m window --resize top:0:-20
+# shift + alt - right : yabai -m window east --resize left:20:0 2> /dev/null || yabai -m window --resize left:20:0
+
+# -- Commands ------------------------------------------------------------------
+
+# balance size of windows
+shift + alt - z : yabai -m space --balance
+
+# rotate the windows
+shift + alt - r : yabai -m space --rotate 90
+
+# toggle sub split directory
+shift + alt - t : yabai -m window --toggle split
+
+# close the window
+shift + alt - x : yabai -m window --close
+
+# toggle window zoom
+shift + alt - q : yabai -m window --toggle zoom-fullscreen
+
+# toggle space management
+shift + alt - s : yabai -m space --layout float
+shift + alt - d : yabai -m space --layout bsp
+shift + alt - f : yabai -m space --layout stack
+
+# refresh yabai
+shift + alt + ctrl - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# -- Application ---------------------------------------------------------------
+
+shift + alt - i : open -a alacritty
+shift + alt + ctrl - i : open -na alacritty
+
+shift + alt - m : open -a Firefox\ Developer\ Edition
+shift + alt + ctrl - m : open -a Google\ Chrome
+
+shift + alt - o : open -a Slack
+
+shift + alt - b : open ~
+shift + alt + ctrl - b : ~/Programming/Scripts/skhd/finder
